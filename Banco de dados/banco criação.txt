@@ -1,0 +1,119 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema bonecas
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema bonecas
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `bonecas` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `bonecas` ;
+
+-- -----------------------------------------------------
+-- Table `bonecas`.`endereço`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bonecas`.`endereço` (
+  `idendereço` INT NOT NULL AUTO_INCREMENT,
+  `rua` VARCHAR(225) NOT NULL,
+  `numero` VARCHAR(225) NOT NULL,
+  `bairro` VARCHAR(225) NOT NULL,
+  `cidade` VARCHAR(225) NOT NULL,
+  PRIMARY KEY (`idendereço`),
+  UNIQUE INDEX `idendereço_UNIQUE` (`idendereço` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `bonecas`.`usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bonecas`.`usuario` (
+  `idusuario` INT NOT NULL AUTO_INCREMENT,
+  `nome_usuario` VARCHAR(225) NOT NULL,
+  `email_usuario` VARCHAR(225) NOT NULL,
+  `senha` VARCHAR(225) NOT NULL,
+  `endereço_idendereço` INT NOT NULL,
+  PRIMARY KEY (`idusuario`),
+  UNIQUE INDEX `idusuario_UNIQUE` (`idusuario` ASC) VISIBLE,
+  UNIQUE INDEX `email_usuario_UNIQUE` (`email_usuario` ASC) VISIBLE,
+  INDEX `fk_usuario_endereço_idx` (`endereço_idendereço` ASC) VISIBLE,
+  CONSTRAINT `fk_usuario_endereço`
+    FOREIGN KEY (`endereço_idendereço`)
+    REFERENCES `bonecas`.`endereço` (`idendereço`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `bonecas`.`categoria`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bonecas`.`categoria` (
+  `idcategoria` INT NOT NULL AUTO_INCREMENT,
+  `categoria_nome` VARCHAR(225) NOT NULL,
+  PRIMARY KEY (`idcategoria`),
+  UNIQUE INDEX `idcategoria_UNIQUE` (`idcategoria` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `bonecas`.`produto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bonecas`.`produto` (
+  `idproduto` INT NOT NULL AUTO_INCREMENT,
+  `nome_produto` VARCHAR(225) NOT NULL,
+  `valor_produto` VARCHAR(225) NOT NULL,
+  `quantidade_produto` INT NOT NULL,
+  `categoria_idcategoria` INT NOT NULL,
+  PRIMARY KEY (`idproduto`),
+  UNIQUE INDEX `idproduto_UNIQUE` (`idproduto` ASC) VISIBLE,
+  INDEX `fk_produto_categoria1_idx` (`categoria_idcategoria` ASC) VISIBLE,
+  CONSTRAINT `fk_produto_categoria1`
+    FOREIGN KEY (`categoria_idcategoria`)
+    REFERENCES `bonecas`.`categoria` (`idcategoria`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `bonecas`.`carrinho`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bonecas`.`carrinho` (
+  `idcarrinho` INT NOT NULL AUTO_INCREMENT,
+  `usuario_idusuario` INT NOT NULL,
+  `endereço_idendereço` INT NOT NULL,
+  `produto_idproduto` INT NOT NULL,
+  PRIMARY KEY (`idcarrinho`),
+  UNIQUE INDEX `idcarrinho_UNIQUE` (`idcarrinho` ASC) VISIBLE,
+  INDEX `fk_carrinho_usuario1_idx` (`usuario_idusuario` ASC) VISIBLE,
+  INDEX `fk_carrinho_endereço1_idx` (`endereço_idendereço` ASC) VISIBLE,
+  INDEX `fk_carrinho_produto1_idx` (`produto_idproduto` ASC) VISIBLE,
+  CONSTRAINT `fk_carrinho_usuario1`
+    FOREIGN KEY (`usuario_idusuario`)
+    REFERENCES `bonecas`.`usuario` (`idusuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_carrinho_endereço1`
+    FOREIGN KEY (`endereço_idendereço`)
+    REFERENCES `bonecas`.`endereço` (`idendereço`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_carrinho_produto1`
+    FOREIGN KEY (`produto_idproduto`)
+    REFERENCES `bonecas`.`produto` (`idproduto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
