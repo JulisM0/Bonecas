@@ -19,13 +19,13 @@
     <main>
         <section class="form-section">
             <div class="form-content">
-                <form action="" method="post">
+                <form action="processos/processo_cad.php" method="post">
                     <label for="name">Nome</label>
-                    <input type="text" class="input-box" placeholder="Digite seu nome" id="nome">
+                    <input type="text" class="input-box" placeholder="Digite seu nome" id="nome" name="nome">
                     <label for="email">Email</label>
-                    <input type="email" class="input-box" placeholder="Digite seu email" id="email">
+                    <input type="email" class="input-box" placeholder="Digite seu email" id="email" name="email">
                     <label for="senha">Senha</label>
-                    <input type="password" class="input-box" placeholder="Digite sua senha" id="senha">
+                    <input type="password" class="input-box" placeholder="Digite sua senha" id="senha" name="senha">
 
                     <label for="estado">Estado</label>
                         <select name="estado" id="estado">
@@ -58,6 +58,20 @@
                             <option value="SE">Sergipe</option>
                             <option value="TO">Tocantins</option>
                         </select>
+
+                    <label for="cidade">Cidade</label>
+                    <input type="text" name="cidade" id="cidade" placeholder="Digite o nome da sua cidade">
+
+                    <label for="rua">Rua</label>
+                    <input type="text" name="rua" id="rua" placeholder="Digite o nome da sua rua">
+
+                    <label for="numero_casa">Número da casa</label>
+                    <input type="number" name="numero_casa" id="numero_casa" placeholder="Digite o número da sua casa">
+
+                    <label for="bairro">Bairro</label>
+                    <input type="text" name="bairro" id="bairro" placeholder="Digite o nome do seu bairro">
+
+                    <button type="submit" class="submit-btn">Cadastrar</button>
                     
                 </form>
             </div>

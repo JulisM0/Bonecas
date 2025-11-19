@@ -4,7 +4,7 @@ class Banco {
     private $host = "localhost";
     private $database = "bonecas";
     private $username = "root";
-    private $password = "";
+    private $password = "root";
     private $conexao;
 
     public function conn() {
