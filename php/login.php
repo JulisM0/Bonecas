@@ -50,7 +50,7 @@
                     </form>
 
                     <div class="login-links">
-                        <a href="cadastro.html" class="login-link">
+                        <a href="cadastro.php" class="login-link">
                             <i class="fas fa-user-plus"></i>
                             Criar uma conta
                         </a>

@@ -21,6 +21,7 @@
         <section class="form-section">
             <div class="form-content">
                 <form action="processos/processo_cad.php" method="post">
+                    <h2 class="form-title">Cadastro de Usuário</h2>
                     <label for="name">Nome</label>
                     <input type="text" class="input-box" placeholder="Digite seu nome" id="nome" name="nome">
                     <label for="email">Email</label>
