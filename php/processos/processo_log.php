@@ -8,6 +8,13 @@ $usuario = new usuario();
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
-$stmt = $conexao->prepare("SELECT * FROM cliente WHERE email = :email");
+$login = $usuario->Login($email, $senha);
+
+if ($login) {
+    header("");
+} else {
+    echo "Não foi possível realizar o login.";
+    header("");
+}
 
 ?>

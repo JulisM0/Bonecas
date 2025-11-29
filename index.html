@@ -5,22 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maison Dolls</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     
-    <header class="header-section">
+       <header class="header-section">
         <nav class="navabr">
             <ul class="nav-list">
                 <li class="nav-item"><a href="#hero-section">Início</a></li>
                 <li class="nav-item"><a href="#about-us">Sobre Nós</a></li>
                 <li class="nav-item"><a href="#collection-preview">Nossa Coleção</a></li>
                 <li class="nav-item"><a href="#contact-section">Nos Contate</a></li>
+                <li class="nav-item login-item"><a href="php/login.html" class="nav-login">Login</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero-section">
+        <section id="hero-section" class="hero-section">
             <div class="hero-content">
                 <h1 class="hero-title">Maison Dolls</h1>
                 <p class="hero-subtitle">A sua loja de bonecas personalizada</p>
@@ -28,7 +30,7 @@
             <a href="php/cadastro.php" class="btn-cadastro">Nossa Coleção</a>
         </section>
 
-        <section class="about-us">
+        <section id="about-us" class="about-us">
             <div class="about-us-content">
                 <h2 class="about-us-title">Sobre Nós</h2>
                 <p class="about-us-text">Na Maison Dolls, acreditamos que cada boneca deve ser tão única quanto a pessoa que a possui. 
@@ -37,34 +39,34 @@
             </div>
         </section>
 
-        <section class="collection-preview">
+        <section id="collection-preview" class="collection-preview">
             <div class="collection-preview-content">
                 <h2 class="collection-preview-title">Nossa Coleção</h2>
                 <div class="collection-items">
                     <div class="collection-item">
-                        <img src="boneca1.jpg" alt="Boneca 1" class="collection-item-image">
-                        <h3 class="collection-item-title">Boneca Floral</h3>
+                        <img src="img/boneca1.jpg" alt="Boneca 1" class="collection-item-image">
+                        <h3 class="collection-item-title">Frankie stein</h3>
                     </div>
                     <div class="collection-item">
-                        <img src="boneca2.jpg" alt="Boneca 2" class="collection-item-image">
-                        <h3 class="collection-item-title">Boneca Princesa</h3>
+                        <img src="img/boneca2.jpg" alt="Boneca 2" class="collection-item-image">
+                        <h3 class="collection-item-title">Skulltimates Secrets Draculaura</h3>
                     </div>  
                     <div class="collection-item">
-                        <img src="boneca3.jpg" alt="Boneca 3" class="collection-item-image">
-                        <h3 class="collection-item-title">Boneca Aventureira</h3>
+                        <img src="img/boneca3.jpg" alt="Boneca 3" class="collection-item-image">
+                        <h3 class="collection-item-title">Miles Morales</h3>
                     </div>
                 </div>
             </div>
         </section>
 
-       <section class="contact-section">
+       <section id="contact-section" class="contact-section">
             <h2 class="section-title">Nos Contate</h2>
             <div class="section-content">
                 <ul class="contact-info-list">
                     <li class="contact-info">
-                        <i class="fa-solid fa-location-crosshairs"></i>
-                        <p>Rua das Flores, 123  Centro
-                        Belo Horizonte, MG  30123-456
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>Rua das Flores, 123 - Centro<br>
+                        Belo Horizonte, MG - 30123-456<br>
                         Brasil</p>
                     </li>
                     <li class="contact-info">
@@ -84,12 +86,39 @@
                 <form action="#" class="contact-form">
                     <input type="text" placeholder="Digite seu Nome" class="form-input" required>
                     <input type="email" placeholder="Digite seu E-mail" class="form-input" required>
-                    <textarea placeholder="Sua mensagem" class="form-input" required></textarea>
-                    <button class="submit-button">Enviar</button>
+                    <textarea placeholder="Sua mensagem" class="form-input" rows="5" required></textarea>
+                    <button type="submit" class="submit-button">Enviar</button>
                 </form>
             </div>
         </section>
     </main>
+
+
+    <footer class="footer-section">
+        <div class="footer-content">
+            <div class="footer-creators">
+                <div class="creator-card">
+                    <img src="images/criador1.jpg" alt="Ana Silva" class="creator-image">
+                    <h3 class="creator-name">Ana Silva</h3>
+                    <p class="creator-role">Desenvolvedora Front-end</p>
+                </div>
+                <div class="creator-card">
+                    <img src="images/criador2.jpg" alt="Carlos Santos" class="creator-image">
+                    <h3 class="creator-name">Carlos Santos</h3>
+                    <p class="creator-role">Designer UI/UX</p>
+                </div>
+                <div class="creator-card">
+                    <img src="images/criador3.jpg" alt="Marina Oliveira" class="creator-image">
+                    <h3 class="creator-name">Marina Oliveira</h3>
+                    <p class="creator-role">Desenvolvedora Back-end</p>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 Maison Dolls. Todos os direitos reservados.</p>
+                <p>Desenvolvido com ❤️ pela nossa equipe</p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
